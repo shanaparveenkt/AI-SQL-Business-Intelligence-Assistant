@@ -1,12 +1,10 @@
-import mysql.connector
+import pandas as pd
+from pandasql import sqldf
 
-def connect_db():
+def run_query(query):
 
-    conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="YOUR_PASSWORD",
-        database="salesdb"
-    )
+    sales = pd.read_csv("sales.csv")
 
-    return conn
+    result = sqldf(query, locals())
+
+    return result
