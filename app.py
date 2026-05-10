@@ -39,7 +39,7 @@ if st.button("Analyze"):
 
     try:
 
-        result = run_query(sql_query)
+        result = run_query(sql_query, sales)
 
         st.subheader("Query Results")
 
