@@ -18,7 +18,7 @@ def generate_sql(user_question):
     State, Region, Product_Name, Category,
     Sub_Category, Sales, Quantity, Discount, Profit
 
-    Convert the following question into SQL query.
+    Convert the following question into a valid SQLite/MySQL SQL query.
 
     Question:
     {user_question}
