@@ -40,7 +40,7 @@ if st.button("Analyze"):
 
             fig, ax = plt.subplots()
 
-            ax.bar(result[x], result[y])
+            ax.bar(result[x].astype(str), result[y])
 
             plt.xticks(rotation=45)
 
