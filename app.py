@@ -4,6 +4,13 @@ import matplotlib.pyplot as plt
 from database import run_query
 from ai_engine import generate_sql
 
+
+uploaded_file = st.file_uploader(
+    "Upload your CSV file",
+    type=["csv"]
+)
+
+
 st.set_page_config(page_title="AI SQL Assistant")
 
 st.title("AI-Powered SQL Business Intelligence Assistant")
