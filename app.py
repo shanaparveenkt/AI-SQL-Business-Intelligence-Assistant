@@ -1,8 +1,7 @@
 import streamlit as st
-import pandas as pd
 import matplotlib.pyplot as plt
 
-from database import connect_db
+from database import run_query
 from ai_engine import generate_sql
 
 st.set_page_config(page_title="AI SQL Assistant")
@@ -21,11 +20,9 @@ if st.button("Analyze"):
 
     st.code(sql_query, language="sql")
 
-    conn = connect_db()
-
     try:
 
-        result = pd.read_sql(sql_query, conn)
+        result = run_query(sql_query)
 
         st.subheader("Query Results")
 
@@ -50,14 +47,11 @@ if st.button("Analyze"):
 
         st.error(f"Error: {e}")
 
-
-
 st.sidebar.title("AI SQL Assistant")
 
 st.sidebar.info(
     "Ask questions about sales, profit, customers, and regions."
 )
-
 
 st.markdown("""
 ### Example Questions
