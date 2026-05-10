@@ -5,17 +5,26 @@ from database import run_query
 from ai_engine import generate_sql
 
 
-uploaded_file = st.file_uploader(
-    "Upload your CSV file",
-    type=["csv"]
-)
-
-
 st.set_page_config(page_title="AI SQL Assistant")
 
 st.title("AI-Powered SQL Business Intelligence Assistant")
 
 st.write("Ask business questions in natural language.")
+
+# FILE UPLOADER
+uploaded_file = st.file_uploader(
+    "Upload your CSV file",
+    type=["csv"]
+)
+
+# LOAD DATASET
+if uploaded_file is not None:
+
+    sales = pd.read_csv(uploaded_file)
+
+else:
+
+    sales = pd.read_csv("sales.csv")
 
 question = st.text_input("Enter your question")
 
