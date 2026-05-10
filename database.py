@@ -1,10 +1,7 @@
-import pandas as pd
 from pandasql import sqldf
 
-def run_query(query):
+def run_query(query, sales):
 
-    sales = pd.read_csv("sales.csv")
-
-    result = sqldf(query, locals())
+    result = sqldf(query, {"sales": sales})
 
     return result
